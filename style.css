@@ -1,0 +1,136 @@
+/* base style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100;
+  overflow-x: hidden;
+  background-color: #0f0f1c;
+}
+/* container */
+.container {
+  width: 920px;
+  margin: 0 auto;
+  padding-top: 20px;
+  margin-top: 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.section-title {
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/*  interface */
+.pin-generate-interface,
+.pin-submit-interface {
+  background-color: #232437;
+  padding: 40px 50px 30px;
+  border-radius: 5px;
+}
+/* input fields */
+#random-pin-ui,
+#pin-submit-ui {
+  background-color: #3f4053;
+  width: 100%;
+  border: 1px solid rgb(187, 182, 182);
+  padding: 8px 12px;
+  color: white;
+  border-radius: 3px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+#random-pin-ui:focus,
+#pin-submit-ui:focus {
+  outline: none;
+}
+
+/* pin gen btn interface */
+.pin-gen-ui {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+}
+.pin-btn {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  background-color: #4a5ac3;
+  border: 8px solid #3a448b;
+  font-size: 20px;
+  color: white;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* pin matching interface */
+.numbers {
+  padding: 0 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.number {
+  background-color: #424f62;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.number:hover {
+  background-color: #516582;
+  transition: 0.3s;
+}
+.submit-btn {
+  display: block;
+  width: 100%;
+  grid-column: 1 /-1;
+  padding: 10px 0;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* responsive pin mathcer */
+@media screen and (max-width: 960px) {
+  /* container */
+  .container {
+    width: 100%;
+    max-width: 700px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* container */
+  .container {
+    width: 100%;
+    max-width: 600px;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 12px;
+  }
+
+  /* pin gen btn interface */
+  .pin-gen-ui {
+    margin-bottom: 70px;
+  }
+  .pin-btn {
+    height: 100px;
+    width: 100px;
+    font-size: 16px;
+    padding: 12px;
+  }
+}
