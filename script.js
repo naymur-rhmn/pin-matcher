@@ -15,8 +15,23 @@ document.getElementById('numbers').addEventListener('click', function (e) {
   // handle event delegation
   if (e.target.classList.contains('number')) {
     const singleNum = e.target.innerText;
-    userPin += singleNum;
-    pinSubmitInputElem.value = userPin;
+    // input user pin
+    if (!isNaN(singleNum)) {
+      userPin += singleNum;
+      pinSubmitInputElem.value = userPin;
+    }
+    // delete last value from user pin
+    if (isNaN(singleNum) && singleNum === '<') {
+      const userPinArr = userPin.split('');
+      userPinArr.pop();
+      userPin = userPinArr.join('');
+      pinSubmitInputElem.value = userPin;
+    }
+    // clear user input pin
+    if (isNaN(singleNum) && singleNum === 'c') {
+      userPin = '';
+      pinSubmitInputElem.value = '';
+    }
   }
 });
 
@@ -40,13 +55,17 @@ const randomPinGen = () => {
 const pinMatcher = () => {
   const randomPin = pinUiElem.value;
   const userPin = pinSubmitInputElem.value;
-  if (randomPin === userPin) {
-    alert('Success! Number Matched.');
-    pinUiElem.value = '';
-    pinSubmitInputElem.value = '';
+  if (randomPin === true) {
+    if (randomPin === userPin) {
+      alert('Success! Number Matched.');
+      pinUiElem.value = '';
+      pinSubmitInputElem.value = '';
+    } else {
+      alert('Incorrect Number! Try Again.');
+      pinUiElem.value = '';
+      pinSubmitInputElem.value = '';
+    }
   } else {
-    alert('Incorrect Number! Try Again.');
-    pinUiElem.value = '';
-    pinSubmitInputElem.value = '';
+    alert('Generate the pin first');
   }
 };
