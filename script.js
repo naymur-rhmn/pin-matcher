@@ -10,7 +10,7 @@ document.getElementById('pin-gen-btn').addEventListener('click', function () {
   pinUiElem.value = randomPin;
 });
 
-// set event delegation on numbrese element
+// set event delegation on numbers element
 document.getElementById('numbers').addEventListener('click', function (e) {
   // handle event delegation
   if (e.target.classList.contains('number')) {
@@ -54,16 +54,19 @@ const randomPinGen = () => {
 // pin matcher arrow function
 const pinMatcher = () => {
   const randomPin = pinUiElem.value;
-  const userPin = pinSubmitInputElem.value;
-  if (randomPin === true) {
-    if (randomPin === userPin) {
+  const userPins = pinSubmitInputElem.value;
+  console.log(Boolean(randomPin), Boolean(userPin));
+  if (Boolean(randomPin) === true) {
+    if (randomPin === userPins) {
       alert('Success! Number Matched.');
       pinUiElem.value = '';
       pinSubmitInputElem.value = '';
+      userPin = '';
     } else {
       alert('Incorrect Number! Try Again.');
       pinUiElem.value = '';
       pinSubmitInputElem.value = '';
+      userPin = '';
     }
   } else {
     alert('Generate the pin first');
